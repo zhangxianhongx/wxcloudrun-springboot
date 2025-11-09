@@ -1,5 +1,12 @@
 {
-  "containers": [],
+  "containers": [
+    {
+      "name": "wxcloudrun-springboot",
+      "domain": "",
+      "ip": "",
+      "mode": "compose"
+    }
+  ],
   "config": {
     "wxcloudrun-springboot": {
       "containerPort": 80,

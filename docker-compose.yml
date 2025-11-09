@@ -17,11 +17,7 @@ services:
     environment:
       - MYSQL_USERNAME=root
       - MYSQL_PASSWORD=6v8RtHbG
-      - >-
-        MYSQL_ADDRESS=https://sh-cynosdbmysql-grp-pl1ws2yc.sql.tencentcdb.com:21934
-      - MYSQL_USERNAME=
-      - MYSQL_PASSWORD=
-      - MYSQL_ADDRESS=
+      - MYSQL_ADDRESS=10.29.103.83:3306
 networks:
   default:
     external:

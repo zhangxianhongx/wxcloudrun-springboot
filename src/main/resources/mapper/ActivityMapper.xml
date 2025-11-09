@@ -22,7 +22,7 @@
 
     <select id="getActivity" resultMap="activityMapper" parameterType="java.lang.Integer">
         SELECT *
-        FROM Counters
+        FROM t_client_activity
         WHERE id = #{id}
     </select>
 

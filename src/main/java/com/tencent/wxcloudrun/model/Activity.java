@@ -1,13 +1,18 @@
 package com.tencent.wxcloudrun.model;
 
-import java.util.Date;
 
-public class Activity {
+
+import lombok.Data;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Data
+public class Activity implements Serializable {
     private Integer id;
     private String descs;
     private String source;
-    private Date startTime;
-    private Date endTime;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
     private Integer shopId;
     private String activityExplain;
     private String activityImages;

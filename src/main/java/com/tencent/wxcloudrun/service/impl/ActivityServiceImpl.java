@@ -6,10 +6,14 @@ import com.tencent.wxcloudrun.service.ActivityService;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ActivityServiceImpl implements ActivityService {
     final ActivityMapper activityMapper;
 
-    public ActivityServiceImpl(ActivityMapper activityMapper) {
+    public ActivityServiceImpl(@Autowired ActivityMapper activityMapper) {
         this.activityMapper = activityMapper;
     }
 
