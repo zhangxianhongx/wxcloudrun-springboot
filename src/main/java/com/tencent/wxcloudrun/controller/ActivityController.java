@@ -20,7 +20,7 @@ public class ActivityController {
 
     public ActivityController(@Autowired ActivityService activityService) {
         this.activityService = activityService;
-        this.logger = LoggerFactory.getLogger(CounterController.class);
+        this.logger = LoggerFactory.getLogger(ActivityController.class);
     }
     /**
      * 获取当前计数
