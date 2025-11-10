@@ -69,4 +69,45 @@ public class EmployeeController {
         res.put("msg", "请求成功");
         return res;
     }
+
+    @PostMapping("/api/shopEmployeeList")
+    @ResponseBody
+    public Map<String,Object> getShopEmployeeList(String shopId, HttpServletRequest request) {
+        logger.info("/api/getShopEmployeeList get request");
+        Map<String, Object> res = new HashMap<String, Object>();
+        if (shopId == null) {
+            res.put("code", "-1");
+            res.put("msg", "参数缺失");
+            return res;
+        }
+        Integer id = Integer.parseInt(shopId);
+        logger.info("shopId " + id);
+        Optional<List<Employee>> employees = employeeService.getShopEmployeeList(id);
+        if (employees != null) {
+            res.put("data", employees);
+        }
+        res.put("code", "0");
+        res.put("msg", "请求成功");
+        return res;
+    }
+    @PostMapping("/api/activityEmployeeList")
+    @ResponseBody
+    public Map<String,Object> getActivityEmployeeList(String activityId, HttpServletRequest request) {
+        logger.info("/api/getActivityEmployeeList get request");
+        Map<String, Object> res = new HashMap<String, Object>();
+        if (activityId == null) {
+            res.put("code", "-1");
+            res.put("msg", "参数缺失");
+            return res;
+        }
+        Integer id = Integer.parseInt(activityId);
+        logger.info("activityId " + id);
+        Optional<List<Employee>> employees = employeeService.getActivityEmployeeList(id);
+        if (employees != null) {
+            res.put("data", employees);
+        }
+        res.put("code", "0");
+        res.put("msg", "请求成功");
+        return res;
+    }
 }
