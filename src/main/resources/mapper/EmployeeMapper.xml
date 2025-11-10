@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.EmployeeMapper">
+
+    <resultMap id="employeeMapper" type="com.tencent.wxcloudrun.model.Employee">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="avatar" column="avatar"/>
+        <result property="workYear" column="work_year"/>
+        <result property="sex" column="sex" />
+        <result property="birthYear" column="birth_year" />
+        <result property="shopId" column="shop_id"/>
+        <result property="activityId" column="activity_id"/>
+        <result property="descs" column="descs"/>
+        <result property="sign" column="sign"/>
+        <result property="status" column="status"/>
+        <result property="wxNum" column="wx_num"/>
+        <result property="phoneNum" column="phone_num"/>
+        <result property="city" column="city"/>
+        <result property="photos" column="photos"/>
+        <result property="sort" column="sort"/>
+    </resultMap>
+
+    <select id="getEmployee" resultMap="employeeMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_employee
+        WHERE id = #{id} and status = 0
+    </select>
+    <select id="getEmployeeList" resultMap="employeeMapper" >
+        SELECT *
+        FROM t_client_employee
+        WHERE status = 0 order by sort desc
+    </select>
+    <select id="getShopEmployeeList" resultMap="employeeMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_employee
+        WHERE shop_id = #{shopId} and status = 0 order by sort desc
+    </select>
+    
+    <select id="getActivityEmployeeList" resultMap="employeeMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_employee
+        WHERE activity_id = #{activityId} and status = 0 order by sort desc
+    </select>
+
+</mapper>

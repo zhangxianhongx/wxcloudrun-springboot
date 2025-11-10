@@ -21,6 +21,8 @@ public class Activity implements Serializable {
     private String shareSubTitle;
     private String activityTitle;
     private String activityDetail;
+    // 0未上线，1下线，2结束
     private int activityStatus;
+    // -1不需要报名，0无限制，>0
     private int limitCount;
 }

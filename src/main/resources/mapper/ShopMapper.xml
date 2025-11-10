@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.ShopMapper">
+
+    <resultMap id="shopMapper" type="com.tencent.wxcloudrun.model.Shop">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="logo" column="logo"/>
+        <result property="descs" column="descs"/>
+        <result property="city" column="city" />
+        <result property="address" column="address" />
+        <result property="lat" column="lat"/>
+        <result property="lng" column="lng"/>
+        <result property="status" column="status"/>
+        <result property="wxNum" column="wx_num"/>
+        <result property="phoneNum" column="phone_num"/>
+        <result property="photos" column="photos"/>
+        <result property="sort" column="sort"/>
+    </resultMap>
+
+    <select id="getShop" resultMap="shopMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_shop
+        WHERE id = #{id} and status = 0
+    </select>
+    <select id="getShopList" resultMap="shopMapper" >
+        SELECT *
+        FROM t_client_employee
+        WHERE status = 0 order by sort desc
+    </select>
+
+</mapper>
