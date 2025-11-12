@@ -16,12 +16,12 @@
     <select id="getShopCollect" resultMap="objectMapper" parameterType="java.lang.Integer">
         SELECT *
         FROM t_client_collect
-        WHERE shop_id=#{shopId} status = 0 order by sort
+        WHERE shop_id=#{shopId} and status = 0 order by sort
     </select>
     <select id="getUserCollect" resultMap="objectMapper" parameterType="java.lang.Integer">
         SELECT *
         FROM t_client_collect
-        WHERE user_id=#{userId} status = 0 order by sort
+        WHERE user_id=#{userId} and status = 0 order by sort
     </select>
 
 </mapper>
