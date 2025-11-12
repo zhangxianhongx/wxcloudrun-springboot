@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.GoodsMapper">
+
+    <resultMap id="objectMapper" type="com.tencent.wxcloudrun.model.Goods">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+        <result property="descs" column="descs"/>
+        <result property="cover" column="cover"/>
+        <result property="status" column="status"/>
+        <result property="count" column="count"/>
+        <result property="sort" column="sort"/>
+        <result property="images" column="images"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="details" column="details"/>
+        <result property="createTime" column="created_time" javaType="java.time.LocalDateTime" />
+    </resultMap>
+
+    <select id="getGoods" resultMap="objectMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_goods
+        WHERE shop_id=#{shopId} and status = 0 order by sort
+    </select>
+    <select id="getUserGoods" resultMap="objectMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_goods
+        WHERE user_id=#{userId} and status = 0 order by sort
+    </select>
+    <select id="getGoodsInfo" resultMap="objectMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_goods
+        WHERE id=#{id} status = 0 order by sort
+    </select>
+
+</mapper>
