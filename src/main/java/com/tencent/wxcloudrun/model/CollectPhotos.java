@@ -12,4 +12,5 @@ public class CollectPhotos implements Serializable {
     private String url;
     private String videoUrl;
     private int type;
+    private int sort;
 }
