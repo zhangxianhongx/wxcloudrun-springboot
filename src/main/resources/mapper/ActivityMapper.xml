@@ -13,6 +13,7 @@
         <result property="shopId" column="shop_id"/>
         <result property="activityExplain" column="activity_explain"/>
         <result property="activityImages" column="activity_images"/>
+        <result property="activityImage" column="activity_image"/>
         <result property="shareTitle" column="share_title"/>
         <result property="shareImage" column="share_image"/>
         <result property="shareSubTitle" column="share_sub_title"/>

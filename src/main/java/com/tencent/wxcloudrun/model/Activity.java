@@ -16,6 +16,7 @@ public class Activity implements Serializable {
     private Integer shopId;
     private String activityExplain;
     private String activityImages;
+    private String activityImage;
     private String shareTitle;
     private String shareImage;
     private String shareSubTitle;
