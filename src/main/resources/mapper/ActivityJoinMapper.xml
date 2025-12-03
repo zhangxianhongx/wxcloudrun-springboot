@@ -21,7 +21,7 @@
         FROM t_client_activity_join
         WHERE opeid = #{openid}
     </select>
-    <select id="getJogetJoinInfoWithOpenidActivityIdnList" resultMap="dMapper" parameterType="java.lang.Integer">
+    <select id="getJoinInfoWithOpenidActivityId" resultMap="dMapper" parameterType="java.lang.Integer">
         SELECT *
         FROM t_client_activity_join
         WHERE activity_id = #{activityId} and opeid=#{openid}
