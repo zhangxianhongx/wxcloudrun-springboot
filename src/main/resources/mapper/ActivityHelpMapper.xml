@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.ActivityHelpMapper">
+
+    <resultMap id="dMapper" type="com.tencent.wxcloudrun.model.ActivityHelp">
+        <id property="id" column="id"/>
+        <result property="activityId" column="activity_id"/>
+        <result property="helpedOpenid" column="helped_openid"/>
+        <result property="openid" column="opeid"/>
+        <result property="createTime" column="create_time" javaType="java.time.LocalDateTime" />
+       
+    </resultMap>
+
+    <select id="getHelpInfo" resultMap="dMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_activity_help
+        WHERE id = #{id}
+    </select>
+    <select id="getHelpInfoWithOpenid" resultMap="dMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_activity_help
+        WHERE opeid = #{openid}
+    </select>
+    <select id="getHelpList" resultMap="dMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_activity_help
+        WHERE activity_id = #{activityid}
+    </select>
+     <insert id="insertHelp" parameterType="com.tencent.wxcloudrun.model.ActivityHelp">
+        INSERT INTO user (activity_id, helped_openid, opeid)
+        VALUES (#{activityId}, #{helpedOpenid}, #{openid})
+    </insert>
+</mapper>

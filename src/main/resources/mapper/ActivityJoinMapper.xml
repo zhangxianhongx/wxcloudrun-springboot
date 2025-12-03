@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.ActivityJoinMapper">
+
+    <resultMap id="dMapper" type="com.tencent.wxcloudrun.model.ActivityJoin">
+        <id property="id" column="id"/>
+        <result property="activityId" column="activity_id"/>
+        <result property="phone" column="phone"/>
+        <result property="openid" column="opeid"/>
+        <result property="createTime" column="create_time" javaType="java.time.LocalDateTime" />
+       
+    </resultMap>
+
+    <select id="getJoinInfo" resultMap="dMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_activity_join
+        WHERE id = #{id}
+    </select>
+    <select id="getJoinList" resultMap="dMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_client_activity_join
+        WHERE activity_id = #{activityid}
+    </select>
+     <insert id="insertJoin" parameterType="com.tencent.wxcloudrun.model.ActivityJoin">
+        INSERT INTO user (activity_id, phone, opeid)
+        VALUES (#{activityId}, #{phone}, #{openid})
+    </insert>
+</mapper>
