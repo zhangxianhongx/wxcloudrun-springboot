@@ -74,7 +74,7 @@ public class ActivityJoinController {
     @PostMapping("/api/addJoin")
     @ResponseBody
     public Map<String,Object> addJoin(String activityId, HttpServletRequest request) {
-        logger.info("/api/getHelpList");
+        logger.info("/api/addJoin");
         Map<String, Object> res = new HashMap<String, Object>();
         if (activityId == null) {
             res.put("code", "-1");

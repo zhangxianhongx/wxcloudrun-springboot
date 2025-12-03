@@ -11,6 +11,7 @@ import com.tencent.wxcloudrun.model.ActivityHelp;
 public interface ActivityHelpMapper {
     ActivityHelp getHelpInfo(@Param("id") Integer id);
     List<ActivityHelp> getHelpInfoWithOpenid(@Param("openid") String openid);
+    List<ActivityHelp> getHelpedList(@Param("helpedId") String helpedId,  @Param("activityId") String activityId);
     ActivityHelp getHelpInfoWithOpenidActivityId(@Param("openid") String openid, @Param("activityId") String activityId);
     List<ActivityHelp> getHelpList(@Param("activityId") Integer activityId);
     void insertHelp(ActivityHelp help);

@@ -24,7 +24,13 @@
     <select id="getHelpInfoWithOpenidActivityId" resultMap="dMapper" parameterType="java.lang.Integer">
         SELECT *
         FROM t_activity_help
-        WHERE activity_id = #{activityid} and opeid=#{openid}
+        WHERE activity_id = #{activityId} and opeid=#{openid}
+    </select>
+    
+    <select id="getHelpedList" resultMap="dMapper" parameterType="java.lang.Integer">
+        SELECT *
+        FROM t_activity_help
+        WHERE activity_id = #{activityId} and helpedOpenid=#{helpedId}
     </select>
      <insert id="insertHelp" parameterType="com.tencent.wxcloudrun.model.ActivityHelp">
         INSERT INTO user (activity_id, helped_openid, opeid)

@@ -24,7 +24,7 @@
     <select id="getJogetJoinInfoWithOpenidActivityIdnList" resultMap="dMapper" parameterType="java.lang.Integer">
         SELECT *
         FROM t_client_activity_join
-        WHERE activity_id = #{activityid} and opeid=#{openid}
+        WHERE activity_id = #{activityId} and opeid=#{openid}
     </select>
      <insert id="insertJoin" parameterType="com.tencent.wxcloudrun.model.ActivityJoin">
         INSERT INTO user (activity_id, phone, opeid)

@@ -77,6 +77,31 @@ public class ActivityHelpController {
         res.put("msg", "请求成功");
         return res;
     }
+    @PostMapping("/api/getHelpedList")
+    @ResponseBody
+    public Map<String,Object> getHelpedList(String activityId, HttpServletRequest request) {
+        logger.info("/api/getHelpedList");
+        Map<String, Object> res = new HashMap<String, Object>();
+        if (activityId == null) {
+            res.put("code", "-1");
+            res.put("msg", "请求失败");
+            return res;
+        }
+        String openid = request.getHeader("openid");
+        if (openid == null) {
+            res.put("code", "-1");
+            res.put("msg", "请求失败");
+            return res;
+        }
+        Optional<List<ActivityHelp>> list = helpService.getHelpedList(openid, activityId);
+        if (list != null) {
+            res.put("data", list);
+        }
+        res.put("code", "0");
+        res.put("msg", "请求成功");
+        return res;
+    }
+
     @PostMapping("/api/addHelp")
     @ResponseBody
     public Map<String,Object> addhelp(String activityId, String activityJoinid, HttpServletRequest request) {

@@ -40,5 +40,9 @@ public class ActivityHelpServiceImpl implements ActivityHelpService {
     public Optional<ActivityHelp> getHelpInfoWithOpenidActivityId(String openid, String activityId) {
         return Optional.ofNullable(this.dMapper.getHelpInfoWithOpenidActivityId(openid, activityId));
     }
+    @Override
+    public Optional<List<ActivityHelp>> getHelpedList(String helpedId, String activityId) {
+         return Optional.ofNullable(this.dMapper.getHelpedList(helpedId, activityId));
+    }
 
 }
