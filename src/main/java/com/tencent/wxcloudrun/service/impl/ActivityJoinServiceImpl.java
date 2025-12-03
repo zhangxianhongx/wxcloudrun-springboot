@@ -32,11 +32,11 @@ public class ActivityJoinServiceImpl implements ActivityJoinService {
     }
     @Override
     public Optional<List<ActivityJoin>> getJoinInfoWithOpenid(String openid) {
-        return Optional.ofNullable(this.dMapper.getHelpInfoWithOpenid(openid));
+        return Optional.ofNullable(this.dMapper.getJoinInfoWithOpenid(openid));
     }
     @Override
     public Optional<ActivityJoin> getJoinInfoWithOpenidActivityId(String openid, String activityId) {
-        return Optional.ofNullable(this.dMapper.getHelpInfoWithOpenidActivityId(openid, activityId));
+        return Optional.ofNullable(this.dMapper.getJoinInfoWithOpenidActivityId(openid, activityId));
     }
 
 }
