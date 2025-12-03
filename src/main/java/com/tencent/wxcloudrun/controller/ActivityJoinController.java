@@ -82,7 +82,7 @@ public class ActivityJoinController {
             return res;
         }
 
-        String openid = request.getHeader("openid");
+        String openid = request.getHeader("X-WX-OPENID");
         if (openid == null) {
             res.put("code", "-1");
             res.put("msg", "openid 为空");
