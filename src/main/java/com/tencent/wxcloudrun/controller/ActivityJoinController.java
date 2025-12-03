@@ -14,9 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tencent.wxcloudrun.model.ActivityHelp;
 import com.tencent.wxcloudrun.model.ActivityJoin;
-import com.tencent.wxcloudrun.service.ActivityHelpService;
 import com.tencent.wxcloudrun.service.ActivityJoinService;
 @Controller
 public class ActivityJoinController {
