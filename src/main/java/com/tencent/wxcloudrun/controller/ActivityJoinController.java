@@ -18,7 +18,7 @@ import com.tencent.wxcloudrun.model.ActivityJoin;
 import com.tencent.wxcloudrun.service.ActivityJoinService;
 @Controller
 public class ActivityJoinController {
- final ActivityJoinService joinService;
+    final ActivityJoinService joinService;
     final Logger logger;
 
     public ActivityJoinController(@Autowired ActivityJoinService aService) {
@@ -85,7 +85,7 @@ public class ActivityJoinController {
         String openid = request.getHeader("openid");
         if (openid == null) {
             res.put("code", "-1");
-            res.put("msg", "请求失败");
+            res.put("msg", "openid 为空");
             return res;
         }
         Optional<ActivityJoin> historyData = joinService.getJoinInfoWithOpenidActivityId(openid, activityId);
