@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tencent.wxcloudrun.dao.ActivityJoinMapper;
 import com.tencent.wxcloudrun.model.ActivityJoin;
 import com.tencent.wxcloudrun.service.ActivityJoinService;
-
+@Service
 public class ActivityJoinServiceImpl implements ActivityJoinService {
     final ActivityJoinMapper dMapper;
 
